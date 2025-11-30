@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWIFT – Das Börsenspiel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    header {
+      background: linear-gradient(90deg, #005293, #007fc2);
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    header h3 {
+      color: #e6f0f8;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 2rem auto;
+      max-width: 300px;
+      filter: drop-shadow(0 0 6px rgba(0, 82, 147, 0.4));
+    }
+
+    .container {
+      padding: 3rem 10%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      background: #ffffff;
+      padding: 2rem 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      border: 1px solid #dee2e6;
+    }
+
+    h2 {
+      color: #005293;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid #007fc2;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      color: #003b63;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #00abc2;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    table, th, td {
+      border: 1px solid #007fc2;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      background: #f1f3f5;
+    }
+
+    a {
+      display: inline-block;
+      color: #fff;
+      background-color: #005293;
+      padding: 0.6rem 1.2rem;
+      margin-top: 0.8rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    a:hover {
+      background-color: #007fc2;
+      transform: translateY(-2px);
+    }
+
+    .highlight {
+      color: #005293;
+      font-weight: bold;
+    }
+
+    .screenshot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .screenshot-gallery img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshot-gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SWIFT</h1>
+    <h3>Software Wildau Investment and Financial Trading</h3>
+    <img src="./images/swift_logo.png" alt="Logo_SWIFT" class="logo" />
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Hintergrund</h2>
+      <p>Im Rahmen der Wildauer Software Fabrik haben wir (das <strong>SWIFT</strong> Team) es uns zur Aufgabe gemacht den Aktienmarkt zu revolutionieren und dies innerhalb des SoSe 2025!</p>
+      <p>Der Name SWIFT bedeutet dabei soviel wie <strong>Software Wildau Investment and Financial Trading</strong>. Genau dies stellt auch unsere Grundidee da. Wir wollen eine Verbindung zwischen Spiel und Aktienhandel schaffen.</p>
+      <p>Die Idee ein Aktienspiel zu entwickeln hatten bereits viele Publisher und stellt dementsprechend nichts neues dar. Diese setzen jedoch auf bunte und farbenreiche Spiele, nutzen Aktienkurse und Unternehmen die sie selbst erfunden haben und arbeiten dabei oft mit Zusatzelementen, die die Komponente des Handelns in den Hintergrund stellt.</p>
+      <p>Als wir das sahen dachten wir: <span class="highlight">DAS GEHT BESSER!</span></p>
+      <p>Aus diesem Grund haben wir von SWIFT uns zusammengesetzt und eine Idee entwickelt, die es so auf dem Markt noch nicht gab! Ein Aktienspiel das den Spielaspekt nicht verliert, aber das Handeln in den Vordergrund stellt.</p>
+      <p>Unser Ziel ist es, dass Nutzer den Aktienmarkt in einer sicheren Umgebung ohne den Risikoaspekt des Kapitalverlustes erleben können. Dies haben wir uns zur Aufgabe gemacht und dabei ein Konzept entwickelt, welches sich an etablierten Brokern orientiert, damit also eine Art bereits funktionierenden Best Practice nutzt, und trotzdem ein neues Element hineinfügt. Dieses Element ist unsere Spielkomponente!</p>
+      <p>Sie ist ein Kampf gegen den Markt selbst. Dabei tritt man mit seinen eigenen Aktien und damit seinem Protfolio gegen den <strong>NASDAQ100</strong> an. Die Bedingungen unter denen man gegen diesen Index spielt sind dabei real, da echte Aktienkurse verwendet werden und zum Handeln auch die Aktien des NASDAQ100 zur Verfügung stehen! So kann man sich täglich mit dem Markt messen und ihn hoffentlich irgengwann schlagen.</p>
+      
+      <div class="screenshot-gallery">
+        <img src="./images/Meme.png" alt="Yhorm vs. Ashen One Meme mit Portfolio VS Markt" />
+      </div>
+      
+      <p>Reden kann man viel, wir wollen aber auch zeigen und präsentieren!</p>
+      <p>Aus diesem Grund schaut doch einmal selbst herein und überzeugt euch selbst von <a href="https://swift.wsf.wir.ad.th-wildau.de/" target="_blank" rel="noopener noreferrer">SWIFT (im VPN der TH-Wildau)</a></p>
+    </section>
+
+    <section>
+      <h2>Herausforderungen</h2>
+      <p>Zu Beginn unseres Projektes waren wir ein Team aus 7 zusammengewürfelten Studenten. Einige aus dem Bachelorstudiengang Wirtschaftsinformatik und einige aus dem Master der Wirtschaftsinformatik.</p>
+      <p>Unsere Skills und Herangehensweisen waren dabei sehr verschieden und auch die Entscheidung für eine Projektidee stellte sich als keine leichte Aufgabe heraus.</p>
+      <p>Im Endeffekt waren wir alle von der Idee eines Aktienspiels überzeugt und so kam SWIFT auf die Welt!</p>
+      <p>Als die Grundidee bekannt war kam es nun zu Tests und Diskussionen.</p>
+      <p>Wie soll so ein Spiel aussehen? Was sind die wichtigen Komponenten die wir benötigen? Wie genau ist ein solches Projekt anzugehen?</p>
+      <p>Dies sind nur ein paar Fragen die es zu klären galt!</p>
+      <p>Schnell stelten wir fest, das Ideen und Möglichkeiten der Entwickklung endlos sind. Ein Aspket der sich als größte Herausforderung darstellte war die aktuellen Kursdaten in einer möglichst kurzen Zeitspanne zu erhalten.</p>
+      <p>Auch die Entwicklung stellte uns vor Herausforderungen, da wir wie gesagt ein recht zusammengewürfeltes Team waren, bei dem die Zusammenarbeit erst erlernt werden musste.</p>
+      <p>Doch wie geht man an solche Herausforderungen heran?</p>
+
+      <div class="screenshot-gallery">
+        <img src="./images/Startseite.png" alt="Startseite" />
+      </div>
+    </section>
+
+    <section>
+      <h2>Herangehensweise</h2>
+      <p>Um die technischen Herausforderungen lösen zu können nutzen wir Tests unter einer Art "Jugend Forscht" Ansatz.</p>
+      <p>Das bedeutete viel Recherche zu möglichen Anbietern von Echtzeitkursdaten, sowie der Auslastung derer Grenzen.</p>
+      <p>Dabei haben wir von APIs aus dem Internet über Python Bibliotheken ein breites Spektrum abgedeckt um eine passende Lösung zu finden.</p>
+      <p>Im Endeffekt stellte sich die yFinance Bibliothek als perfekte Lösung heraus. Mit ihr können wir minütlich aktuelle Kurse abfragen ohne dabei gebannt zu werden.</p>
+      <p>Auch Technologieentscheidungen für Datenbank, Frontend und Backend haben wir nicht einfach gewürfelt.</p>
+      <p>Hier nutzten wir ein Zusammenspiel aus Teamerfahrungen und Lasttests. So nutzen wir Technologien in denen Teammitglieder bereits Erfahrungen sammeln konnten. Dadurch haben wir sichergestellt, dass es einen Ansprechpartner bei Fragen gibt und somit Teammitglieder die noch weniger Erfahrungen hatten einen leichteren Einstieg hinbekamen.</p>
+      <p>Dennoch mussten die Technologien mit der Masse an Daten klarkommen. Dies wurde im Vorhinein durch Lasttests verifiziert und somit eine Technologienentscheidung getroffen.</p>
+      <p>Im Endeffekt sorgte dies für folgenden Tech-Stack:</p>
+
+      <ul>
+        <li><strong>Frontend</strong>: Next.js</li>
+        <li><strong>Backend</strong>: Java und SpringBoot</li>
+        <li><strong>API-Service</strong>: Node.js und Express, Pythons yFinance Bibliothek</li>
+        <li><strong>Datenbank</strong>: PostgreSQL</li>
+      </ul>
+      
+      <p>Auch die zwischenmenschlichen Herausforderungen gingen wir gemeinsam an. So mussten wir als Team eine Einteilung finden in der sowohl produktiv, als auch konstruktiv gearbeitet werden kann.</p>
+      <p>Nach den ersten Wochen des Projektes zeichnete sich dabei ab wer welche Aufgaben übernehmen und wer am Besten in welchem Bereich eingesetzt werden kann.</p>
+      <p>Wir wählten dabei eine Einteilung in zwei Teams (Frontend und Backend). Wobei wir folgende Personen je Team einteilten:</p>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Paul Lorenz</td><td>Developer (Team Frontend), PO</td></tr>
+          <tr><td>Niels Grosche</td><td>Developer (Team Frontend)</td></tr>
+          <tr><td>Enrico Wölck</td><td>Developer (Team Frontend)</td></tr>
+          <tr><td>Danat Bolatbek</td><td>Developer (Team Backend)</td></tr>
+          <tr><td>Laurentz Borowsky</td><td>Developer (Team Backend)</td></tr>
+          <tr><td>Niklas Wieling</td><td>Developer (Team Backend)</td></tr>
+          <tr><td>Lukas Sontowski</td><td>Developer (Team Backend), Scrum Master</td></tr>
+        </tbody>
+      </table>
+      
+      <p>Wie man sieht gab es noch zwei Sonderaufgaben die verteilt wurden. So übernahm Paul als Hauptideengeber die Aufgabe des Produkt Owners und hat damit eine Hand auf die Grundrichtung der Entwicklung.</p>
+      <p>Lukas hingegen übernahm die Aufgabe des Scrum Masters und überprüfte damit die Arbeitsweise, sowie die grundsätzliche Arbeit innerhalb der Sprints.</p>
+    </section>
+
+    <section>
+      <h2>Lösung</h2>
+      <p>Innerhalb des ersten Semesters haben wir es damit geschafft in unserer Teamkonstellation viel zu erreichen.</p>
+      <p>Wir besitzen eine Singleplayer Webapp, welche im Netz erreichbar ist. Sie besitzt einen klaren Spielfaktor und das Spiel gegen den NASDAQ100 klappt problemlos. Der Ansatz als Webapp wurde dabei gewählt um SWIFT mit all seinen Vorzügen einer möglichst großen Nutzergruppe zur Verfügung stellen zu können.</p>
+      <p>Auch der Fokus auf den Handel von Aktien wurde beibehalten, womit wir unserer Vision treu geblieben sind.</p>
+      <p>Doch warum nur unsere Lösung beschreiben, wenn ihr selbst einmal in das SWIFT Universum eintreten könnt? Dabei ist es euch möglich ganz ohne Risiken eure Trading Skills zu beweisen oder sogar zu verbessern.</p>
+      <p>Egal ob Anfänger oder Profi-Trader, jeder kann durch SWIFT lernen und den Markt aus einer anderen Perspektive erleben.</p>
+      <p>Und wer weiß, villeicht bist <strong>DU</strong> ja sogar besser als der Markt!</p>
+      <p>Probier es doch einfach aus: <a href="https://swift.wsf.wir.ad.th-wildau.de/" target="_blank" rel="noopener noreferrer">SWIFT (im VPN der TH-Wildau)</a></p>
+
+      <div class="screenshot-gallery">
+        <img src="./images/Portfolio.png" alt="Portfolio" />
+      </div>
+    </section>
+
+    <section>
+      <h2>Fazit</h2>
+      <p>Wie bereits erwähnt haben wir unsere Idee ein Singleplayer Aktienspiel zu entwickeln, bei dem man gegen den NASDAQ100 antritt zum Leben erweckt.</p>
+      <p>Wir als Team sind dabei stolz auf unsere Arbeit und haben gelernt, dass man mit strukturierter Zusammenarbeit viel erreichen kann.</p>
+      <p>Neben Zeitmanagement und dem Erlernen von Technologien haben wir weitere Aspekte gelernt, die es innerhalb eines Teams zu bewältigen gilt. So sind einige Aufageben von anderen Mitgliedern abhängig und zeitkritisch. Dies zu lernen und dabei in der Kommunikation immer auf dem neuesten Stand zu bleiben ist eine Herausforderung, der wir uns gestellt haben und die wir gemeinsam angegangen sind.</p>
+      <p>Wer traurig ist und denkt SWIFT sei vorbei, den können wir beruhigen.</p>
+      <p>Wir haben noch viele Ideen auf der Liste und wollen in der Zukunft vieles weiter voran treiben und so unsere Webapp weiterentwickeln.</p>
+      <p>So steht ein Spiel gegen Freunde auf der Liste um nicht nur den NASDAQ100, sondern auch Freunde und Familie schlagen zu können. Auch weitere Indexes sollen in der Zukunft als Marktrivalen folgen.</p>
+      <p>Dies und vieles mehr steht in der Zukunft an. Wir freuen uns <span class="highlight">SWIFT</span> für euch entwickeln zu können!</p>
+    </section>
+
+    <section>
+      <h2>Weitere Einblicke in SWIFT</h2>
+      <div class="screenshot-gallery">
+        <img src="./images/Startseite.png" alt="Startseite" />
+        <img src="./images/Homepage.png" alt="Homepage" />
+        <img src="./images/Portfolio.png" alt="Portfolio" />
+        <img src="./images/Cashpage.png" alt="Cashpage" />
+        <img src="./images/StockExplorer.png" alt="StockExplorer" />
+        <img src="./images/StockPage.png" alt="StockPage" />
+      </div>
+    </section>
+  </div>
+</body>
+</html>

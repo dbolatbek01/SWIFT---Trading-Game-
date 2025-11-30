@@ -1,0 +1,16 @@
+{
+  "name": "achievement_service",
+  "version": "1.0.0",
+  "description": "service that checks for reached achievement",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "swift-team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "node-cron": "^3.0.3",
+    "pg": "^8.14.1"
+  }
+}

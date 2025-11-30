@@ -1,0 +1,310 @@
+################
+# Stages CI/CD #
+################
+stages:
+  - build-container # Build Images for SWIFT
+  - stop-clean  # Stop and Delete old Containers
+  - start   # Start new Images
+  - clear-server  # clear storage of Server
+
+#####################
+# Defined Variables #
+#####################
+variables:
+    DOCKER_IMAGE_NAME_API_SERVICE: api-service
+    DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE: achievement-service
+    DOCKER_IMAGE_NAME_BACKEND: backend
+    DOCKER_IMAGE_NAME_FRONTEND: frontend
+    SWIFT_NETWORK_NAME: swift-network
+    DEPLOY_USER: projektstudent
+    DEPLOY_SERVER: 10.100.8.137
+    HTTP_PROXY: http://proxy.th-wildau.de:8080
+    HTTPS_PROXY: http://proxy.th-wildau.de:8080
+
+###################################
+# Build Image Achievement_Service #
+###################################
+build_and_push_docker_achievement_service:
+  stage: build-container
+  image: docker:latest
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start Build Achievement_Service"
+    - cd quellcode/achievement_service
+    - touch database/db_config.json
+    - cp "$DB_SERVICE" database/db_config.json 
+    - docker build -t $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE:latest . 
+    - docker save $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE:latest > $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE-image.tar
+    - docker system prune -a --volumes -f 
+    - scp -o StrictHostKeyChecking=no $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE-image.tar ${DEPLOY_USER}@${DEPLOY_SERVER}:/home/${DEPLOY_USER}
+    - echo "Build Achievement-Service completed"
+  when: manual
+
+###########################
+# Build Image Api_Service #
+###########################
+build_and_push_docker_api_service:
+  stage: build-container
+  image: docker:latest
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start Build Api_Service"
+    - cd quellcode/api_service
+    - touch database/db_config.json
+    - cp "$DB_SERVICE" database/db_config.json 
+    - docker build -t $DOCKER_IMAGE_NAME_API_SERVICE:latest . 
+    - docker save $DOCKER_IMAGE_NAME_API_SERVICE:latest > $DOCKER_IMAGE_NAME_API_SERVICE-image.tar
+    - docker system prune -a --volumes -f 
+    - scp -o StrictHostKeyChecking=no $DOCKER_IMAGE_NAME_API_SERVICE-image.tar ${DEPLOY_USER}@${DEPLOY_SERVER}:/home/${DEPLOY_USER}
+    - echo "Build Api-Service completed"
+  when: manual
+
+#######################
+# Build Image Backend #
+#######################
+build_and_push_docker_backend:
+  stage: build-container
+  image: docker:latest
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start Build Backend"
+    - cd quellcode/Swift\ Postgres\ Driver/Swift
+    - touch gradle.properties && touch src/main/resources/application.properties
+    - cp "$GRADLE_PROPERTIES" gradle.properties && cp "$APPLICATION_PROPERTIES" src/main/resources/application.properties
+    - docker build -t $DOCKER_IMAGE_NAME_BACKEND:latest . 
+    - docker save $DOCKER_IMAGE_NAME_BACKEND:latest > $DOCKER_IMAGE_NAME_BACKEND-image.tar
+    - docker system prune -a --volumes -f 
+    - scp -o StrictHostKeyChecking=no $DOCKER_IMAGE_NAME_BACKEND-image.tar ${DEPLOY_USER}@${DEPLOY_SERVER}:/home/${DEPLOY_USER}
+    - echo "Build Backend completed"
+  when: manual
+
+########################
+# Build Image Frontend #
+########################
+build_and_push_docker_frontend:
+  stage: build-container
+  image: docker:latest
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start Build Frontend"
+    - cd quellcode/frontend
+    - touch .env
+    - cp "$ENV" .env && cp "$CONFIG_FRONTEND" config.ts
+    - docker build -t $DOCKER_IMAGE_NAME_FRONTEND:latest . 
+    - docker save $DOCKER_IMAGE_NAME_FRONTEND:latest > $DOCKER_IMAGE_NAME_FRONTEND-image.tar
+    - docker system prune -a --volumes -f 
+    - scp -o StrictHostKeyChecking=no $DOCKER_IMAGE_NAME_FRONTEND-image.tar ${DEPLOY_USER}@${DEPLOY_SERVER}:/home/${DEPLOY_USER}
+    - echo "Build Frontend completed"
+  when: manual
+
+#################################################
+# Stop and Delete Achievement-Service Container #
+#################################################
+stop_and_remove_achievement_service:
+  stage: stop-clean
+  image: docker:latest
+  needs: ["build_and_push_docker_achievement_service"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start cleaning and deleting Achievement-Service"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker stop ${DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE} || true && docker rm ${DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE} || true"
+    - echo "Cleaning and deleting Achievement-Service completed"
+
+#########################################
+# Stop and Delete Api-Service Container #
+#########################################
+stop_and_remove_api_service:
+  stage: stop-clean
+  image: docker:latest
+  needs: ["build_and_push_docker_api_service"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start cleaning and deleting Api-Service"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker stop ${DOCKER_IMAGE_NAME_API_SERVICE} || true && docker rm ${DOCKER_IMAGE_NAME_API_SERVICE} || true"
+    - echo "Cleaning and deleting Api-Service completed"
+
+#####################################
+# Stop and Delete Backend Container #
+#####################################
+stop_and_remove_backend:
+  stage: stop-clean
+  image: docker:latest
+  needs: ["build_and_push_docker_backend"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start cleaning and deleting Backend"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker stop ${DOCKER_IMAGE_NAME_BACKEND} || true && docker rm ${DOCKER_IMAGE_NAME_BACKEND} || true"
+    - echo "Cleaning and deleting Backend completed"
+
+######################################
+# Stop and Delete Frontend Container #
+######################################
+stop_and_remove_frontend:
+  stage: stop-clean
+  image: docker:latest
+  needs: ["build_and_push_docker_frontend"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start cleaning and deleting Frontend"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker stop ${DOCKER_IMAGE_NAME_FRONTEND} || true && docker rm ${DOCKER_IMAGE_NAME_FRONTEND} || true"
+    - echo "Cleaning and deleting Frontend completed"
+    
+#######################################
+# Start Achievement-Service Container #
+#######################################
+start_achievement_service:
+  stage: start
+  image: docker:latest
+  needs: ["stop_and_remove_achievement_service"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start deploying Achievement-Service"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker load < $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE-image.tar && docker run -e TZ=Europe/Berlin -d --restart unless-stopped -p 5001:5001 --name $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE:latest && rm $DOCKER_IMAGE_NAME_ACHIEVEMENT_SERVICE-image.tar || true && docker system prune -a --volumes -f"
+    - echo "Deploying Achievement-Service completed"
+
+###############################
+# Start Api-Service Container #
+###############################
+start_api_service:
+  stage: start
+  image: docker:latest
+  needs: ["stop_and_remove_api_service"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start deploying Api-Service"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker load < $DOCKER_IMAGE_NAME_API_SERVICE-image.tar && docker run -d --restart unless-stopped -p 5000:5000 --name $DOCKER_IMAGE_NAME_API_SERVICE $DOCKER_IMAGE_NAME_API_SERVICE:latest && rm $DOCKER_IMAGE_NAME_API_SERVICE-image.tar || true && docker system prune -a --volumes -f"
+    - echo "Deploying Api-Service completed"
+
+###########################
+# Start Backend Container #
+###########################
+start_backend:
+  stage: start
+  image: docker:latest
+  needs: ["stop_and_remove_backend"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start deploying Backend"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker load < $DOCKER_IMAGE_NAME_BACKEND-image.tar && docker run -e TZ=Europe/Berlin -d --restart unless-stopped -p 8080:8080 --name $DOCKER_IMAGE_NAME_BACKEND $DOCKER_IMAGE_NAME_BACKEND:latest && rm $DOCKER_IMAGE_NAME_BACKEND-image.tar || true && docker system prune -a --volumes -f"
+    - echo "Deploying Backend completed"
+
+############################
+# Start Frontend Container #
+############################
+start_frontend:
+  stage: start
+  image: docker:latest
+  needs: ["stop_and_remove_frontend"]
+  before_script:
+    - export http_proxy=$HTTP_PROXY
+    - export https_proxy=$HTTPS_PROXY
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh    
+    - ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Start deploying Frontend"
+    - ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "docker load < $DOCKER_IMAGE_NAME_FRONTEND-image.tar && docker run -d --restart unless-stopped  -e TZ=Europe/Berlin -p 3000:3000 --network $SWIFT_NETWORK_NAME --name $DOCKER_IMAGE_NAME_FRONTEND $DOCKER_IMAGE_NAME_FRONTEND:latest && rm $DOCKER_IMAGE_NAME_FRONTEND-image.tar || true && docker system prune -a --volumes -f"
+    - echo "Deploying Frontend completed"

@@ -1,0 +1,709 @@
+[
+  {
+    "id": 98,
+    "stockname": "Apple Inc.",
+    "shortname": "AAPL",
+    "sector": "Technology",
+    "industry": "Consumer Electronics"
+  },
+  {
+    "id": 99,
+    "stockname": "AbbVie",
+    "shortname": "ABBV",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 100,
+    "stockname": "Abbott Laboratories",
+    "shortname": "ABT",
+    "sector": "Healthcare",
+    "industry": "Medical Devices"
+  },
+  {
+    "id": 101,
+    "stockname": "Accenture",
+    "shortname": "ACN",
+    "sector": "Technology",
+    "industry": "Information Technology Services"
+  },
+  {
+    "id": 102,
+    "stockname": "Adobe Inc.",
+    "shortname": "ADBE",
+    "sector": "Technology",
+    "industry": "Software - Application"
+  },
+  {
+    "id": 103,
+    "stockname": "American International Group",
+    "shortname": "AIG",
+    "sector": "Financial Services",
+    "industry": "Insurance - Diversified"
+  },
+  {
+    "id": 104,
+    "stockname": "Advanced Micro Devices",
+    "shortname": "AMD",
+    "sector": "Technology",
+    "industry": "Semiconductors"
+  },
+  {
+    "id": 105,
+    "stockname": "Amgen",
+    "shortname": "AMGN",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 106,
+    "stockname": "American Tower",
+    "shortname": "AMT",
+    "sector": "Real Estate",
+    "industry": "REIT - Specialty"
+  },
+  {
+    "id": 107,
+    "stockname": "Amazon",
+    "shortname": "AMZN",
+    "sector": "Consumer Cyclical",
+    "industry": "Internet Retail"
+  },
+  {
+    "id": 108,
+    "stockname": "Broadcom",
+    "shortname": "AVGO",
+    "sector": "Technology",
+    "industry": "Semiconductors"
+  },
+  {
+    "id": 109,
+    "stockname": "American Express",
+    "shortname": "AXP",
+    "sector": "Financial Services",
+    "industry": "Credit Services"
+  },
+  {
+    "id": 110,
+    "stockname": "Boeing",
+    "shortname": "BA",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense"
+  },
+  {
+    "id": 111,
+    "stockname": "Bank of America",
+    "shortname": "BAC",
+    "sector": "Financial Services",
+    "industry": "Banks - Diversified"
+  },
+  {
+    "id": 112,
+    "stockname": "BNY Mellon",
+    "shortname": "BK",
+    "sector": "Financial Services",
+    "industry": "Banks - Diversified"
+  },
+  {
+    "id": 113,
+    "stockname": "Booking Holdings",
+    "shortname": "BKNG",
+    "sector": "Consumer Cyclical",
+    "industry": "Travel Services"
+  },
+  {
+    "id": 114,
+    "stockname": "BlackRock",
+    "shortname": "BLK",
+    "sector": "Financial Services",
+    "industry": "Asset Management"
+  },
+  {
+    "id": 115,
+    "stockname": "Bristol Myers Squibb",
+    "shortname": "BMY",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 116,
+    "stockname": "Berkshire Hathaway (Class B)",
+    "shortname": "BRK-B",
+    "sector": "Financial Services",
+    "industry": "Insurance - Diversified"
+  },
+  {
+    "id": 117,
+    "stockname": "Citigroup",
+    "shortname": "C",
+    "sector": "Financial Services",
+    "industry": "Banks - Diversified"
+  },
+  {
+    "id": 118,
+    "stockname": "Caterpillar Inc.",
+    "shortname": "CAT",
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery"
+  },
+  {
+    "id": 119,
+    "stockname": "Colgate-Palmolive",
+    "shortname": "CL",
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products"
+  },
+  {
+    "id": 120,
+    "stockname": "Comcast",
+    "shortname": "CMCSA",
+    "sector": "Communication Services",
+    "industry": "Telecom Services"
+  },
+  {
+    "id": 121,
+    "stockname": "Capital One",
+    "shortname": "COF",
+    "sector": "Financial Services",
+    "industry": "Credit Services"
+  },
+  {
+    "id": 122,
+    "stockname": "ConocoPhillips",
+    "shortname": "COP",
+    "sector": "Energy",
+    "industry": "Oil & Gas E&P"
+  },
+  {
+    "id": 123,
+    "stockname": "Costco",
+    "shortname": "COST",
+    "sector": "Consumer Defensive",
+    "industry": "Discount Stores"
+  },
+  {
+    "id": 124,
+    "stockname": "Salesforce",
+    "shortname": "CRM",
+    "sector": "Technology",
+    "industry": "Software - Application"
+  },
+  {
+    "id": 125,
+    "stockname": "Cisco",
+    "shortname": "CSCO",
+    "sector": "Technology",
+    "industry": "Communication Equipment"
+  },
+  {
+    "id": 126,
+    "stockname": "CVS Health",
+    "shortname": "CVS",
+    "sector": "Healthcare",
+    "industry": "Healthcare Plans"
+  },
+  {
+    "id": 127,
+    "stockname": "Chevron Corporation",
+    "shortname": "CVX",
+    "sector": "Energy",
+    "industry": "Oil & Gas Integrated"
+  },
+  {
+    "id": 128,
+    "stockname": "Deere & Company",
+    "shortname": "DE",
+    "sector": "Industrials",
+    "industry": "Farm & Heavy Construction Machinery"
+  },
+  {
+    "id": 129,
+    "stockname": "Danaher Corporation",
+    "shortname": "DHR",
+    "sector": "Healthcare",
+    "industry": "Diagnostics & Research"
+  },
+  {
+    "id": 130,
+    "stockname": "Walt Disney Company (The)",
+    "shortname": "DIS",
+    "sector": "Communication Services",
+    "industry": "Entertainment"
+  },
+  {
+    "id": 131,
+    "stockname": "Duke Energy",
+    "shortname": "DUK",
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric"
+  },
+  {
+    "id": 132,
+    "stockname": "Emerson Electric",
+    "shortname": "EMR",
+    "sector": "Industrials",
+    "industry": "Specialty Industrial Machinery"
+  },
+  {
+    "id": 133,
+    "stockname": "FedEx",
+    "shortname": "FDX",
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics"
+  },
+  {
+    "id": 134,
+    "stockname": "General Dynamics",
+    "shortname": "GD",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense"
+  },
+  {
+    "id": 135,
+    "stockname": "GE Aerospace",
+    "shortname": "GE",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense"
+  },
+  {
+    "id": 136,
+    "stockname": "Gilead Sciences",
+    "shortname": "GILD",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 137,
+    "stockname": "General Motors",
+    "shortname": "GM",
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Manufacturers"
+  },
+  {
+    "id": 138,
+    "stockname": "Alphabet Inc. (Class C)",
+    "shortname": "GOOG",
+    "sector": "Communication Services",
+    "industry": "Internet Content & Information"
+  },
+  {
+    "id": 139,
+    "stockname": "Alphabet Inc. (Class A)",
+    "shortname": "GOOGL",
+    "sector": "Communication Services",
+    "industry": "Internet Content & Information"
+  },
+  {
+    "id": 140,
+    "stockname": "Goldman Sachs",
+    "shortname": "GS",
+    "sector": "Financial Services",
+    "industry": "Capital Markets"
+  },
+  {
+    "id": 141,
+    "stockname": "Home Depot",
+    "shortname": "HD",
+    "sector": "Consumer Cyclical",
+    "industry": "Home Improvement Retail"
+  },
+  {
+    "id": 142,
+    "stockname": "Honeywell",
+    "shortname": "HON",
+    "sector": "Industrials",
+    "industry": "Conglomerates"
+  },
+  {
+    "id": 143,
+    "stockname": "IBM",
+    "shortname": "IBM",
+    "sector": "Technology",
+    "industry": "Information Technology Services"
+  },
+  {
+    "id": 144,
+    "stockname": "Intel",
+    "shortname": "INTC",
+    "sector": "Technology",
+    "industry": "Semiconductors"
+  },
+  {
+    "id": 145,
+    "stockname": "Intuit",
+    "shortname": "INTU",
+    "sector": "Technology",
+    "industry": "Software - Application"
+  },
+  {
+    "id": 146,
+    "stockname": "Intuitive Surgical",
+    "shortname": "ISRG",
+    "sector": "Healthcare",
+    "industry": "Medical Instruments & Supplies"
+  },
+  {
+    "id": 147,
+    "stockname": "Johnson & Johnson",
+    "shortname": "JNJ",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 148,
+    "stockname": "JPMorgan Chase",
+    "shortname": "JPM",
+    "sector": "Financial Services",
+    "industry": "Banks - Diversified"
+  },
+  {
+    "id": 149,
+    "stockname": "Coca-Cola Company (The)",
+    "shortname": "KO",
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Non-Alcoholic"
+  },
+  {
+    "id": 150,
+    "stockname": "Linde plc",
+    "shortname": "LIN",
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals"
+  },
+  {
+    "id": 151,
+    "stockname": "Eli Lilly and Company",
+    "shortname": "LLY",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 152,
+    "stockname": "Lockheed Martin",
+    "shortname": "LMT",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense"
+  },
+  {
+    "id": 153,
+    "stockname": "Lowe's",
+    "shortname": "LOW",
+    "sector": "Consumer Cyclical",
+    "industry": "Home Improvement Retail"
+  },
+  {
+    "id": 154,
+    "stockname": "Mastercard",
+    "shortname": "MA",
+    "sector": "Financial Services",
+    "industry": "Credit Services"
+  },
+  {
+    "id": 155,
+    "stockname": "McDonald's",
+    "shortname": "MCD",
+    "sector": "Consumer Cyclical",
+    "industry": "Restaurants"
+  },
+  {
+    "id": 156,
+    "stockname": "Mondelēz International",
+    "shortname": "MDLZ",
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners"
+  },
+  {
+    "id": 157,
+    "stockname": "Medtronic",
+    "shortname": "MDT",
+    "sector": "Healthcare",
+    "industry": "Medical Devices"
+  },
+  {
+    "id": 158,
+    "stockname": "MetLife",
+    "shortname": "MET",
+    "sector": "Financial Services",
+    "industry": "Insurance - Life"
+  },
+  {
+    "id": 159,
+    "stockname": "Meta Platforms",
+    "shortname": "META",
+    "sector": "Communication Services",
+    "industry": "Internet Content & Information"
+  },
+  {
+    "id": 160,
+    "stockname": "3M",
+    "shortname": "MMM",
+    "sector": "Industrials",
+    "industry": "Conglomerates"
+  },
+  {
+    "id": 161,
+    "stockname": "Altria",
+    "shortname": "MO",
+    "sector": "Consumer Defensive",
+    "industry": "Tobacco"
+  },
+  {
+    "id": 162,
+    "stockname": "Merck & Co.",
+    "shortname": "MRK",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 163,
+    "stockname": "Morgan Stanley",
+    "shortname": "MS",
+    "sector": "Financial Services",
+    "industry": "Capital Markets"
+  },
+  {
+    "id": 164,
+    "stockname": "Microsoft",
+    "shortname": "MSFT",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure"
+  },
+  {
+    "id": 165,
+    "stockname": "NextEra Energy",
+    "shortname": "NEE",
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric"
+  },
+  {
+    "id": 166,
+    "stockname": "Netflix, Inc.",
+    "shortname": "NFLX",
+    "sector": "Communication Services",
+    "industry": "Entertainment"
+  },
+  {
+    "id": 167,
+    "stockname": "Nike, Inc.",
+    "shortname": "NKE",
+    "sector": "Consumer Cyclical",
+    "industry": "Footwear & Accessories"
+  },
+  {
+    "id": 168,
+    "stockname": "ServiceNow",
+    "shortname": "NOW",
+    "sector": "Technology",
+    "industry": "Software - Application"
+  },
+  {
+    "id": 169,
+    "stockname": "Nvidia",
+    "shortname": "NVDA",
+    "sector": "Technology",
+    "industry": "Semiconductors"
+  },
+  {
+    "id": 170,
+    "stockname": "Oracle Corporation",
+    "shortname": "ORCL",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure"
+  },
+  {
+    "id": 171,
+    "stockname": "PepsiCo",
+    "shortname": "PEP",
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Non-Alcoholic"
+  },
+  {
+    "id": 172,
+    "stockname": "Pfizer",
+    "shortname": "PFE",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - General"
+  },
+  {
+    "id": 173,
+    "stockname": "Procter & Gamble",
+    "shortname": "PG",
+    "sector": "Consumer Defensive",
+    "industry": "Household & Personal Products"
+  },
+  {
+    "id": 174,
+    "stockname": "Palantir Technologies",
+    "shortname": "PLTR",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure"
+  },
+  {
+    "id": 175,
+    "stockname": "Philip Morris International",
+    "shortname": "PM",
+    "sector": "Consumer Defensive",
+    "industry": "Tobacco"
+  },
+  {
+    "id": 176,
+    "stockname": "PayPal",
+    "shortname": "PYPL",
+    "sector": "Financial Services",
+    "industry": "Credit Services"
+  },
+  {
+    "id": 177,
+    "stockname": "Qualcomm",
+    "shortname": "QCOM",
+    "sector": "Technology",
+    "industry": "Semiconductors"
+  },
+  {
+    "id": 178,
+    "stockname": "RTX Corporation",
+    "shortname": "RTX",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense"
+  },
+  {
+    "id": 179,
+    "stockname": "Starbucks",
+    "shortname": "SBUX",
+    "sector": "Consumer Cyclical",
+    "industry": "Restaurants"
+  },
+  {
+    "id": 180,
+    "stockname": "Charles Schwab Corporation",
+    "shortname": "SCHW",
+    "sector": "Financial Services",
+    "industry": "Capital Markets"
+  },
+  {
+    "id": 181,
+    "stockname": "Southern Company",
+    "shortname": "SO",
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric"
+  },
+  {
+    "id": 182,
+    "stockname": "Simon Property Group",
+    "shortname": "SPG",
+    "sector": "Real Estate",
+    "industry": "REIT - Retail"
+  },
+  {
+    "id": 183,
+    "stockname": "AT&T",
+    "shortname": "T",
+    "sector": "Communication Services",
+    "industry": "Telecom Services"
+  },
+  {
+    "id": 184,
+    "stockname": "Target Corporation",
+    "shortname": "TGT",
+    "sector": "Consumer Defensive",
+    "industry": "Discount Stores"
+  },
+  {
+    "id": 185,
+    "stockname": "Thermo Fisher Scientific",
+    "shortname": "TMO",
+    "sector": "Healthcare",
+    "industry": "Diagnostics & Research"
+  },
+  {
+    "id": 186,
+    "stockname": "T-Mobile US",
+    "shortname": "TMUS",
+    "sector": "Communication Services",
+    "industry": "Telecom Services"
+  },
+  {
+    "id": 187,
+    "stockname": "Tesla, Inc.",
+    "shortname": "TSLA",
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Manufacturers"
+  },
+  {
+    "id": 188,
+    "stockname": "Texas Instruments",
+    "shortname": "TXN",
+    "sector": "Technology",
+    "industry": "Semiconductors"
+  },
+  {
+    "id": 189,
+    "stockname": "Uber",
+    "shortname": "UBER",
+    "sector": "Technology",
+    "industry": "Software - Application"
+  },
+  {
+    "id": 190,
+    "stockname": "UnitedHealth Group",
+    "shortname": "UNH",
+    "sector": "Healthcare",
+    "industry": "Healthcare Plans"
+  },
+  {
+    "id": 191,
+    "stockname": "Union Pacific Corporation",
+    "shortname": "UNP",
+    "sector": "Industrials",
+    "industry": "Railroads"
+  },
+  {
+    "id": 192,
+    "stockname": "United Parcel Service",
+    "shortname": "UPS",
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics"
+  },
+  {
+    "id": 193,
+    "stockname": "U.S. Bancorp",
+    "shortname": "USB",
+    "sector": "Financial Services",
+    "industry": "Banks - Regional"
+  },
+  {
+    "id": 194,
+    "stockname": "Visa Inc.",
+    "shortname": "V",
+    "sector": "Financial Services",
+    "industry": "Credit Services"
+  },
+  {
+    "id": 195,
+    "stockname": "Verizon",
+    "shortname": "VZ",
+    "sector": "Communication Services",
+    "industry": "Telecom Services"
+  },
+  {
+    "id": 196,
+    "stockname": "Wells Fargo",
+    "shortname": "WFC",
+    "sector": "Financial Services",
+    "industry": "Banks - Diversified"
+  },
+  {
+    "id": 197,
+    "stockname": "Walmart",
+    "shortname": "WMT",
+    "sector": "Consumer Defensive",
+    "industry": "Discount Stores"
+  },
+  {
+    "id": 198,
+    "stockname": "ExxonMobil",
+    "shortname": "XOM",
+    "sector": "Energy",
+    "industry": "Oil & Gas Integrated"
+  }
+]

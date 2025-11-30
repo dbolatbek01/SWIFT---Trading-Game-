@@ -1,0 +1,35 @@
+// dependencies
+node_modules
+
+// debug logs
+npm-debug.log*
+
+// build output
+target/
+build/
+
+// source and test code
+src/
+test/
+
+// lock files
+package-lock.json
+yarn.lock
+
+// IDE/editor settings
+.idea
+.vscode
+
+// build tools metadata
+.gradle
+.mvn
+
+// git-related files
+.git
+.gitignore
+
+// docker-related files
+Dockerfile
+
+// documentation
+README.md

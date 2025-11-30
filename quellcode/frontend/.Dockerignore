@@ -1,0 +1,27 @@
+// test files and coverage output
+test/
+coverage/
+
+// dependencies
+node_modules
+
+// debug logs
+npm-debug.log*
+
+// lock files
+package-lock.json
+yarn.lock
+
+// IDE/editor settings
+.idea
+.vscode
+
+// git-related files
+.git
+.gitignore
+
+// docker-related files
+Dockerfile
+
+// documentation
+README.md

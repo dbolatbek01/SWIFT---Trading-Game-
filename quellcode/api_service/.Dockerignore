@@ -1,0 +1,26 @@
+// dependencies
+node_modules
+
+// debug logs
+npm-debug.log*
+
+// lock files
+package-lock.json
+yarn.lock
+
+// IDE/editor settings
+.vscode
+.idea
+
+// git
+.git
+.gitignore
+
+// documentation
+README.md
+
+// docker
+Dockerfile
+
+// environment variables
+.env
